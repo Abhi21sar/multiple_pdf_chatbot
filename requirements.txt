@@ -1,12 +1,12 @@
-langchain
-PyPDF2
-python-dotenv
-streamlit
-openai
-faiss-cpu
-altair
-tiktoken
-langchain-community
-# uncomment to use instructor embeddings
-InstructorEmbedding
-sentence-transformers
+streamlit>=1.30.0
+langchain>=0.1.0
+langchain-community>=0.0.10
+langchain-openai>=0.0.2
+langchain-anthropic>=0.1.0
+pypdf>=4.0.0
+faiss-cpu>=1.7.4
+python-dotenv>=1.0.0
+pydantic-settings>=2.1.0
+loguru>=0.7.2
+tiktoken>=0.5.2
+sentence-transformers>=2.3.1

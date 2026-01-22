@@ -1,53 +1,76 @@
-## Introduction
-------------
-The MultiPDF Chat App is a Python application that allows you to chat with multiple PDF documents. You can ask questions about the PDFs using natural language, and the application will provide relevant responses based on the content of the documents. This app utilizes a language model to generate accurate answers to your queries. Please note that the app will only respond to questions related to the loaded PDFs.
+# 📚 Pro PDF Chatbot
 
-## How It Works
-------------
+A professional, industrial-grade Retrieval-Augmented Generation (RAG) application that allows you to chat with multiple PDF documents simultaneously. Built with LangChain, OpenAI, and Streamlit.
 
-![MultiPDF Chat App Diagram](./PDF-LangChain.jpg)
+## ✨ Features
 
-The application follows these steps to provide responses to your questions:
+- **Multi-PDF Support**: Upload and process multiple PDF files at once.
+- **Advanced RAG**: Uses `RecursiveCharacterTextSplitter` for better context preservation and FAISS for efficient similarity search.
+- **Modular Architecture**: Clean separation of concerns between UI, services, and core configuration.
+- **Premium UI**: Modern, responsive interface with custom CSS and structured chat components.
+- **Configurable**: Easily switch between models and tweak RAG parameters via `.env` or the UI sidebar.
+- **Robust Error Handling**: Comprehensive logging and error reporting.
 
-1. PDF Loading: The app reads multiple PDF documents and extracts their text content.
+## 🚀 Quick Start
 
-2. Text Chunking: The extracted text is divided into smaller chunks that can be processed effectively.
+### 1. Prerequisites
+- Python 3.10 or higher
+- [Poetry](https://python-poetry.org/docs/#installation) (recommended) or pip
 
-3. Language Model: The application utilizes a language model to generate vector representations (embeddings) of the text chunks.
+### 2. Installation
 
-4. Similarity Matching: When you ask a question, the app compares it with the text chunks and identifies the most semantically similar ones.
-
-5. Response Generation: The selected chunks are passed to the language model, which generates a response based on the relevant content of the PDFs.
-
-## Dependencies and Installation
-----------------------------
-To install the MultiPDF Chat App, please follow these steps:
-
-1. Clone the repository to your local machine.
-
-2. Install the required dependencies by running the following command:
-   ```
-   pip install -r requirements.txt
-   ```
-
-3. Obtain an API key from OpenAI and add it to the `.env` file in the project directory.
-```commandline
-OPENAI_API_KEY=your_secrit_api_key
+Clone the repository:
+```bash
+git clone https://github.com/your-repo/multiple_pdf_chatbot.git
+cd multiple_pdf_chatbot
 ```
 
-## Usage
------
-To use the MultiPDF Chat App, follow these steps:
+Install dependencies:
+```bash
+# Using Poetry
+poetry install
 
-1. Ensure that you have installed the required dependencies and added the OpenAI API key to the `.env` file.
+# Using pip
+pip install -r requirements.txt
+```
 
-2. Run the `main.py` file using the Streamlit CLI. Execute the following command:
-   ```
-   streamlit run app.py
-   ```
+### 3. Configuration
+Create a `.env` file in the root directory:
+```bash
+cp .env.example .env
+```
+Add your OpenAI API key to the `.env` file:
+```env
+OPENAI_API_KEY=sk-your-key-here
+```
 
-3. The application will launch in your default web browser, displaying the user interface.
+### 4. Running the App
+```bash
+streamlit run app.py
+```
 
-4. Load multiple PDF documents into the app by following the provided instructions.
+## 🏗️ Project Structure
 
-5. Ask questions in natural language about the loaded PDFs using the chat interface.
+```text
+multiple_pdf_chatbot/
+├── src/
+│   ├── app.py             # Main entry point for Streamlit
+│   ├── core/              # Config, logging, constants
+│   ├── services/          # Core logic (PDF, Vector Store, LLM)
+│   └── ui/                # UI components and styles
+├── tests/                 # Unit and integration tests
+├── .env                   # Environment variables (not in git)
+├── pyproject.toml         # Poetry dependencies
+└── app.py                 # Root entry point wrapper
+```
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Streamlit](https://streamlit.io/)
+- **Orchestration**: [LangChain](https://python.langchain.com/)
+- **Embeddings**: [OpenAI Embeddings](https://platform.openai.com/docs/guides/embeddings)
+- **Vector Store**: [FAISS](https://github.com/facebookresearch/faiss)
+- **LLM**: [GPT-3.5/4](https://openai.com/)
+
+## 📄 License
+MIT License
